@@ -23,3 +23,8 @@
   outcome/Failure?
   (failure? [x]
     (= (get-outcome x) :failure)))
+
+(defn with-result [result fun]
+  (make-result
+   (get-outcome result)
+   (fun (get-value result))))
